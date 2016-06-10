@@ -44,6 +44,10 @@ public class Noticia {
 	public String getCategoria_id() {
 		return categoria_id.getNome();
 	}
+	
+	public Categoria getCategoriaId(){
+		return categoria_id;
+	}
 
 	public void setCategoria_id(Categoria categoria_id) {
 		this.categoria_id = categoria_id;

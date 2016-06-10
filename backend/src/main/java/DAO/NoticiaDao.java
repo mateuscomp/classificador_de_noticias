@@ -46,22 +46,21 @@ public class NoticiaDao {
 			ResultSet rs = stmt.executeQuery();
 			
 			while (rs.next()) {
-				
-				// id_categoria de noticia 
-				Categoria id_categoria = new Categoria();
-				
+									
 				// criando objeto Noticia
 				Noticia noticia = new Noticia();
-				noticia.setId(32l);
-				noticia.setTitulo("titulo");
-				noticia.setNumeroDeComentario(10);
-				noticia.setUrl("url");
-				noticia.setCategoria_id(id_categoria);
+				noticia.setId(noticia.getId());
+				noticia.setTitulo(noticia.getTitulo());
+				noticia.setNumeroDeComentario(noticia.getNumeroDeComentario());
+				noticia.setUrl(noticia.getUrl());
+				noticia.setCategoria_id(noticia.getCategoriaId());
 				
-				// adicionando objeto a lista
+				
+				// adicionando objeto noticia na lista de noticia
 				noticias.add(noticia);
 							
 			}
+			
 			rs.close();
 			stmt.close();
 			return noticias;
@@ -97,7 +96,7 @@ public class NoticiaDao {
 	public void remove(Noticia noticia) {
 		
 		try {
-			// prepared statement para inserçao
+			// prepared statement para remoção
 			PreparedStatement stmt = connection.prepareStatement("delete from noticias where id = ?");
 			
 			stmt.setLong(1, noticia.getId());
