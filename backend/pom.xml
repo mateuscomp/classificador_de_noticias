@@ -21,6 +21,8 @@
 	</properties>
 	<dependencyManagement />
 
+	<packaging>war</packaging>
+
 	<dependencies>
 		<dependency>
 			<groupId>mysql</groupId>
