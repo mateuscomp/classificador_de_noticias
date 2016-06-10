@@ -8,23 +8,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import br.ufpb.dcx.lcc.ia.classificador.domain.Category;
 import br.ufpb.dcx.lcc.ia.classificador.domain.News;
-import br.ufpb.dcx.lcc.ia.classificador.service.CategoryService;
+import br.ufpb.dcx.lcc.ia.classificador.service.NewsService;
 
 @Controller
 @RequestMapping(value = "/system")
 public class SystemController {
 
 	@Autowired
-	private CategoryService categoryService;
-	
-	@RequestMapping(value = "evaluateNew", method = RequestMethod.GET)
+	private NewsService newsService;
+
 	@ResponseBody
-	public List<Category> evaluate(News news) {
-		 List<Category> categ = categoryService.getAllCategories();
-		 
-		 System.out.println(">>> Categories: " + categ.size());
-		 return categ;
+	@RequestMapping(value = "listNews", method = RequestMethod.GET)
+	public List<News> listAllNews() {
+		return newsService.getAllNews();
 	}
+	
+	
 }

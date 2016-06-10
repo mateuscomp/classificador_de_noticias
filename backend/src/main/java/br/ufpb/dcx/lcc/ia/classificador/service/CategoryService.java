@@ -8,16 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.ufpb.dcx.lcc.ia.classificador.domain.Category;
-import br.ufpb.dcx.lcc.ia.classificador.repository.CategoryDAO;
+import br.ufpb.dcx.lcc.ia.classificador.repository.CategoryRepository;
 
 @Service
 public class CategoryService {
 
 	@Autowired
-	private CategoryDAO categoryDao;
+	private CategoryRepository categoryRepository;
 
 	public List<Category> getAllCategories() {
-		Iterator<Category> categoriesIterable = this.categoryDao.findAll().iterator();
+		Iterator<Category> categoriesIterable = this.categoryRepository.findAll().iterator();
 		List<Category> categoriesList = new LinkedList<Category>();
 		while(categoriesIterable.hasNext()){
 			categoriesList.add(categoriesIterable.next());

@@ -3,9 +3,9 @@ package br.ufpb.dcx.lcc.ia.classificador.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import br.ufpb.dcx.lcc.ia.classificador.domain.Category;
+import br.ufpb.dcx.lcc.ia.classificador.domain.News;
 
 @Repository
-public interface CategoryDAO extends CrudRepository<Category, Long>{
+public interface NewsRepository extends CrudRepository<News, Long>{
 
 }

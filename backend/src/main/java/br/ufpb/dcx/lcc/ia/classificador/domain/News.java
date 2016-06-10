@@ -1,11 +1,34 @@
 package br.ufpb.dcx.lcc.ia.classificador.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.Min;
+
+@Entity
+@Table(name = "noticia")
 public class News {
 
+	@Id
+	@GeneratedValue
 	private Long id;
+
+	@Column(name = "titulo", nullable = false)
 	private String title;
+
+	@Min(value = 0)
+	@Column(name = "numero_de_comentarios", nullable = false)
 	private Integer numberOfComments;
+
+	@Column(name = "url", nullable = false)
 	private String url;
+
+	@ManyToOne
+	@JoinColumn(name = "categoria_id")
 	private Category category;
 
 	public String getTitle() {
