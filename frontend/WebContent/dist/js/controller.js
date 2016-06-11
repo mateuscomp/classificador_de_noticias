@@ -7,7 +7,7 @@ var app = angular.module("NewsManagement", []);
             app.controller("NewsManagementController", function($scope, $http) {
                
                 $scope.submitNews = function() {
-                    var url = "http://52.40.55.6:8080/system/evaluateANews?title="+$scope.form.searchFor;
+                    var url = "http://52.40.55.6:8080/classificador-web-service/system/evaluateANews?title"+$scope.form.searchFor;
                     $http({
 	                     method : 'GET',
 	                     url : url
