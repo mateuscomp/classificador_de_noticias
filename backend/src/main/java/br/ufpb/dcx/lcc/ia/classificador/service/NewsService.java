@@ -7,8 +7,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.ufpb.dcx.lcc.ia.classificador.dao.springdata.repository.NewsRepository;
 import br.ufpb.dcx.lcc.ia.classificador.domain.News;
-import br.ufpb.dcx.lcc.ia.classificador.repository.NewsRepository;
 
 @Service
 public class NewsService {

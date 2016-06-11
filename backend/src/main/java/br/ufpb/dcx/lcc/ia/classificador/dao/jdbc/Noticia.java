@@ -1,4 +1,4 @@
-package DAO;
+package br.ufpb.dcx.lcc.ia.classificador.dao.jdbc;
 
 public class Noticia {
 	

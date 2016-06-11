@@ -1,4 +1,4 @@
-package br.ufpb.dcx.lcc.ia.classificador.repository;
+package br.ufpb.dcx.lcc.ia.classificador.dao.springdata.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

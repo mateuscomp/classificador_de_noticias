@@ -7,8 +7,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.ufpb.dcx.lcc.ia.classificador.dao.springdata.repository.CategoryRepository;
 import br.ufpb.dcx.lcc.ia.classificador.domain.Category;
-import br.ufpb.dcx.lcc.ia.classificador.repository.CategoryRepository;
 
 @Service
 public class CategoryService {
