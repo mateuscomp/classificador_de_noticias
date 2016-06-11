@@ -2,13 +2,16 @@ package br.ufpb.dcx.lcc.ia.classificador;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 @SpringBootApplication
-public class Boot
-{
+public class Boot {
 
-   public static void main(String[] args)
-   {
-      SpringApplication.run(Boot.class, args);
-   }
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(Boot.class);
+	}
+
+	public static void main(String[] args) {
+		SpringApplication.run(Boot.class, args);
+	}
 }
