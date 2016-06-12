@@ -1,7 +1,6 @@
 package br.ufpb.dcx.lcc.ia.classificador.controller;
 
 import java.util.List;
-import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,13 +29,11 @@ public class SystemController {
 	}
 
 	@RequestMapping(value = "evaluateANews", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<String> evaluateANewsByTitle(
-			@RequestParam(value = "title", defaultValue = "World") String title) {
-		System.out.println("Parameter that receive is: " + title);
+	public ResponseEntity<String> evaluateANewsByTitle(@RequestParam(value = "title") String title) {
+		title = title.replace("_", " ");
 
-		Random random = new Random();
-		boolean returnValue = random.nextBoolean();
-
+		System.out.println("Parâmetro:" + title);
+		boolean returnValue = newsService.rank(title);
 		if (returnValue) {
 			return ResponseEntity.ok("{\"message\" : \"It's a successful news\" }");
 		}
