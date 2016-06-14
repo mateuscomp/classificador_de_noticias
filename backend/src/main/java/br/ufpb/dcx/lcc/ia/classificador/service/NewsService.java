@@ -14,6 +14,8 @@ import br.ufpb.dcx.lcc.ia.classificador.utils.ClassificadorUtils;
 @Service
 public class NewsService {
 
+	private final int K = 1;
+
 	@Autowired
 	private NewsRepository newsRepository;
 
@@ -33,12 +35,13 @@ public class NewsService {
 		numeroTotalDeNoticiasDeNaoSucesso = numeroTotalDeNoticias - numeroTotalDeNoticiasDeSucesso;
 
 		double probabilidadeDasPalavrasDeNoticiasDeSucesso = probabilityOfWordsInSuccessfulNews(title, successfulWords);
-		double probabilidadesDeNoticiasDeSucesso = probability(numeroTotalDeNoticiasDeSucesso, numeroTotalDeNoticias);
+		double probabilidadesDeNoticiasDeSucesso = probability(numeroTotalDeNoticiasDeSucesso, numeroTotalDeNoticias,
+				K);
 
 		double probabilidadeDasPalavrasDeNoticiasDeNaoSucesso = probabilityOfWordsInSuccessfulNews(title,
 				unsuccessfulWords);
 		double probabilidadesDeNoticiasDeNaoSucesso = probability(numeroTotalDeNoticiasDeNaoSucesso,
-				numeroTotalDeNoticias);
+				numeroTotalDeNoticias, K);
 
 		double probabilidadeTotal = ((probabilidadeDasPalavrasDeNoticiasDeSucesso * probabilidadesDeNoticiasDeSucesso)
 				/ ((probabilidadeDasPalavrasDeNoticiasDeSucesso * probabilidadesDeNoticiasDeSucesso)
@@ -56,9 +59,9 @@ public class NewsService {
 			String wordLower = wordsOfTitle[i].toLowerCase();
 			if (wordsMap.containsKey(wordLower)) {
 				int ocorrenciasDaPalavra = wordsMap.get(wordLower);
-				probability *= probability(1, ocorrenciasDaPalavra);
+				probability *= (probability(1, ocorrenciasDaPalavra, K));
 			} else {
-				probability *= 0;
+				probability *= (probability(1, 0, K));
 			}
 		}
 		return probability;
@@ -83,11 +86,10 @@ public class NewsService {
 		return map;
 	}
 
-	private double probability(int partial, int total) {
+	private double probability(int partial, int total, int k) {
 		double partialDouble = (double) partial;
 		double totalDouble = (double) total;
 
-		return (partialDouble / totalDouble);
+		return ((k + partialDouble) / (totalDouble + (k * 2)));
 	}
-
 }
