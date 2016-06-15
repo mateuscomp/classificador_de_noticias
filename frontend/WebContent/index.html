@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="project IA" content="">
+<meta name="ALex J Costa" content="">
+<link rel="icon" href="favicon.ico">
+<title>News, Please!</title>
+
+<link href="dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/css/ie10-viewport-bug-workaround.css"
+	rel="stylesheet">
+<link href="dist/css/cover.css" rel="stylesheet">
+<script src="assets/js/ie-emulation-modes-warning.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="dist/js/controller.js"></script>
+<head>
+<body ng-app="NewsManagement" ng-controller="NewsManagementController">
+	<div class="site-wrapper">
+		<div class="site-wrapper-inner">
+			<div class="cover-container">
+				<div class="masthead clearfix">
+					<div class="inner">
+						<h3 class="masthead-brand">News, Please!</h3>
+						<nav>
+							<ul class="nav masthead-nav">
+								<li class="active"><a href="./index.html">Home</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				<div class="inner cover">
+					<form ng-submit="submitNews()">
+						<div id="searchString" class="input-group">
+							<input type="text" ng-model="form.searchFor" size="60"
+								class="form-control" placeholder="Search for..."
+								style="font-size: 30px; height: 60px;" required /> <span
+								class="input-group-btn"> <input type="submit" value="Go!"
+								class="btn btn-info"
+								style="font-size: 30px; height: 60px; width: 80px;" />
+							</span>
+						</div>
+					</form>
+					<div id="answerString">
+						<img id="image" height="150" width="150" src="">
+						<h1 id="textAnswer" class="cover-heading"></h1>
+					</div>
+				</div>
+
+				<div class="mastfoot" style="margin-top: 20px;">
+					<div class="col-sm-2 col-md-3">
+						<img width=70 alt="exe" style="border-radius: 20px;"
+							src="images/dev_1.jpg">
+						<p>
+							<a href="https://github.com/AlexJCosta" target="resource window">Alex
+								J Costa</a>
+						</p>
+						<p style="font-size: 10px;">Graduating in Computer Science at UFPB-IV</p>
+					</div>
+					<div class="col-sm-2 col-md-2">
+						<img width=70 alt="exe" style="border-radius: 20px;"
+							src="images/dev_5.jpg">
+						<p>
+							<a style="font-size: 12px;" href="https://github.com/ana-carol" target="resource window">Ana
+								Caroline</a>
+						</p>
+						<p style="font-size: 10px;">Graduating in Computer Science at UFPB-IV</p>
+					</div>
+					<div class="col-sm-2 col-md-2">
+						<img width=70 alt="exe" style="border-radius: 20px;"
+							src="images/dev_2.jpg">
+						<p>
+							<a style="font-size: 11px;" href="https://github.com/mateuscomp"
+								target="resource window">Fernando Mateus</a>
+						</p>
+						<p style="font-size: 10px;">Graduating in Computer Science at UFPB-IV</p>
+					</div>
+					<div class="col-sm-2 col-md-2">
+						<img width=70 alt="exe" style="border-radius: 20px;"
+							src="images/dev_4.jpg">
+						<p>
+							<a style="font-size: 12px;"
+								href="https://github.com/JucianoRomao" target="resource window">Juciano
+								Romão</a>
+						</p>
+						<p style="font-size: 10px;">Graduating in Computer Science at UFPB-IV</p>
+					</div>
+					<div class="col-sm-2 col-md-3">
+						<img width=70 alt="exe" style="border-radius: 20px;"
+							src="images/dev_3.png">
+						<p>
+							<a 
+								href="https://github.com/MarceloPhillip"
+								target="resource window">Marcelo Phillip</a>
+						</p>
+						<p style="font-size: 10px;">Graduating in Computer Science at UFPB-IV</p>
+					</div>
+					<div class="col-sm-7 col-md-12">
+						<div class="footer">
+							<p>© Copyright 2016-2016</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#answerString").hide();
+				$("#buttonGo").click(function(event) {
+					$("#searchString").hide("slow");
+					$("#answerString").show("slow");
+					event.preventDefault();
+				});
+			})
+		</script>
+		<script>
+			window.jQuery
+					|| document
+							.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')
+		</script>
+		<script src="dist/js/bootstrap.min.js"></script>
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
