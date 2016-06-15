@@ -14,7 +14,7 @@ import br.ufpb.dcx.lcc.ia.classificador.utils.ClassificadorUtils;
 @Service
 public class NewsService {
 
-	private final int K = 1;
+	private final double K = 0.2;
 
 	@Autowired
 	private NewsRepository newsRepository;
@@ -47,6 +47,8 @@ public class NewsService {
 				/ ((probabilidadeDasPalavrasDeNoticiasDeSucesso * probabilidadesDeNoticiasDeSucesso)
 						+ (probabilidadeDasPalavrasDeNoticiasDeNaoSucesso * probabilidadesDeNoticiasDeNaoSucesso)));
 
+		probabilidadeTotal = 1 - probabilidadeTotal;
+		
 		System.out.println("A probabilidade foi: " + probabilidadeTotal);
 		return probabilidadeTotal >= ClassificadorUtils.ACCEPTABLE_PERCENTUAL_TO_A_SUCCESFUL_NEWS;
 	}
@@ -86,10 +88,10 @@ public class NewsService {
 		return map;
 	}
 
-	private double probability(int partial, int total, int k) {
+	private double probability(int partial, int total, double k) {
 		double partialDouble = (double) partial;
 		double totalDouble = (double) total;
 
-		return ((k + partialDouble) / (totalDouble + (k * 2)));
+		return (((k + partialDouble)) / (totalDouble + (k * 2)));
 	}
 }
